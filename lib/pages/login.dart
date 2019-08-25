@@ -6,6 +6,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool _obscureText = true;
+
   final _formKey = GlobalKey<FormState>();
 
   String _email, _password;
@@ -41,8 +43,18 @@ class _LoginPageState extends State<LoginPage> {
         validator: (val) => val.length < 6
             ? 'Password is too short. Minimu Length is 6 characters'
             : null,
-        obscureText: true,
+        obscureText: _obscureText,
         decoration: InputDecoration(
+          suffixIcon: GestureDetector(
+            onTap: () {
+              setState(
+                () {
+                  _obscureText = !_obscureText;
+                },
+              );
+            },
+            child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+          ),
           border: OutlineInputBorder(),
           labelText: 'password',
           hintText: 'Enter password, min length 6',

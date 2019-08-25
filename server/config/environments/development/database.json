@@ -2,18 +2,13 @@
   "defaultConnection": "default",
   "connections": {
     "default": {
-      "connector": "strapi-hook-mongoose",
+      "connector": "strapi-hook-bookshelf",
       "settings": {
-        "client": "mongo",
-        "host": "@soko-e-commerce-newgu.mongodb.net",
-        "port": 27017,
-        "database": "server",
-        "username": "waga",
-        "password": "AdamRutherford",
-        "srv": true
+        "client": "sqlite",
+        "filename": ".tmp/data.db"
       },
       "options": {
-        "ssl": true
+        "useNullAsDefault": true
       }
     }
   }

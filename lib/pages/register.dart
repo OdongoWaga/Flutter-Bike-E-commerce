@@ -6,6 +6,10 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final _formKey = GlobalKey<FormState>();
+
+  String _username, _email, _password;
+
   Widget _showTitle() {
     return Text(
       'Register',
@@ -17,6 +21,8 @@ class _RegisterPageState extends State<RegisterPage> {
     return Padding(
       padding: EdgeInsets.only(top: 20.0),
       child: TextFormField(
+        onSaved: (val) => _username = val,
+        validator: (val) => val.length < 6 ? 'Username is too short' : null,
         decoration: InputDecoration(
           border: OutlineInputBorder(),
           labelText: 'Username',
@@ -31,6 +37,8 @@ class _RegisterPageState extends State<RegisterPage> {
     return Padding(
       padding: EdgeInsets.only(top: 20.0),
       child: TextFormField(
+        onSaved: (val) => _email = val,
+        validator: (val) => !val.contains('@') ? 'Enter a valid email' : null,
         decoration: InputDecoration(
           border: OutlineInputBorder(),
           labelText: 'Email',
@@ -45,6 +53,10 @@ class _RegisterPageState extends State<RegisterPage> {
     return Padding(
       padding: EdgeInsets.only(top: 20.0),
       child: TextFormField(
+        onSaved: (val) => _password = val,
+        validator: (val) => val.length < 6
+            ? 'Password is too short. Minimu Length is 6 characters'
+            : null,
         obscureText: true,
         decoration: InputDecoration(
           border: OutlineInputBorder(),
@@ -76,7 +88,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
             color: Theme.of(context).primaryColor,
-            onPressed: () {},
+            onPressed: _submit,
           ),
           FlatButton(
             child: Text('Existing User? Login'),
@@ -85,6 +97,14 @@ class _RegisterPageState extends State<RegisterPage> {
         ],
       ),
     );
+  }
+
+  void _submit() {
+    final form = _formKey.currentState;
+    if (form.validate()) {
+      form.save();
+      print('Username: $_username, Email: $_email, Password: $_password');
+    }
   }
 
   @override
@@ -98,6 +118,7 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Center(
           child: SingleChildScrollView(
             child: Form(
+              key: _formKey,
               child: Column(
                 children: <Widget>[
                   _showTitle(),

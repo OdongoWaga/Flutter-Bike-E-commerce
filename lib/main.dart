@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/pages/login.dart';
+import 'package:flutter_ecommerce/pages/products_page.dart';
 import 'package:flutter_ecommerce/pages/register.dart';
 
 void main() => runApp(MyApp());
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget {
       title: 'Soko E-commerce',
       routes: {
         '/login': (BuildContext context) => LoginPage(),
-        '/register': (BuildContext context) => RegisterPage()
+        '/register': (BuildContext context) => RegisterPage(),
+        '/products': (BuildContext context) => ProductsPage()
       },
       theme: ThemeData(
         brightness: Brightness.dark,

@@ -156,7 +156,7 @@ class _RegisterPageState extends State<RegisterPage> {
       setState(() {
         _isSubmitting = false;
       });
-      final String errorMsg = responseData['Message'];
+      final String errorMsg = responseData['message'];
 
       _showErrorSnack(errorMsg);
     }
@@ -174,10 +174,11 @@ class _RegisterPageState extends State<RegisterPage> {
 
   void _showErrorSnack(String errorMsg) {
     final snackbar = SnackBar(
-        content: Text(
-      errorMsg,
-      style: TextStyle(color: Colors.red),
-    ));
+      content: Text(
+        errorMsg,
+        style: TextStyle(color: Colors.red),
+      ),
+    );
     _scaffoldKey.currentState.showSnackBar(snackbar);
     throw Exception('Error registering $errorMsg');
   }

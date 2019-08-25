@@ -8,6 +8,8 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
 
+  bool _obscureText = true;
+
   String _username, _email, _password;
 
   Widget _showTitle() {
@@ -57,8 +59,18 @@ class _RegisterPageState extends State<RegisterPage> {
         validator: (val) => val.length < 6
             ? 'Password is too short. Minimu Length is 6 characters'
             : null,
-        obscureText: true,
+        obscureText: _obscureText,
         decoration: InputDecoration(
+          suffixIcon: GestureDetector(
+            onTap: () {
+              setState(
+                () {
+                  _obscureText = !_obscureText;
+                },
+              );
+            },
+            child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+          ),
           border: OutlineInputBorder(),
           labelText: 'password',
           hintText: 'Enter password, min length 6',

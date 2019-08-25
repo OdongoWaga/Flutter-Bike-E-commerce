@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           body1: TextStyle(fontSize: 18.0),
         ),
       ),
-      home: RegisterPage(),
+      home: ProductsPage(),
     );
   }
 }

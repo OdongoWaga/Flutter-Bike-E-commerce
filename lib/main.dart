@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/pages/login.dart';
-import 'package:flutter_ecommerce/pages/products_page.dart';
-import 'package:flutter_ecommerce/pages/register.dart';
+import 'package:flutter_ecommerce/models/app_state.dart';
+import 'package:flutter_ecommerce/redux/actions.dart';
 import 'package:flutter_ecommerce/redux/reducers.dart';
+import 'package:flutter_ecommerce/pages/login_page.dart';
+import 'package:flutter_ecommerce/pages/products_page.dart';
+import 'package:flutter_ecommerce/pages/register_page.dart';
 import 'package:redux/redux.dart';
-import 'models/app_state.dart';
-import 'package:redux_thunk/redux_thunk.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'redux/actions.dart';
-import 'package:http/http.dart' as http;
+import 'package:redux_thunk/redux_thunk.dart';
 
 void main() {
   final store = Store<AppState>(appReducer,

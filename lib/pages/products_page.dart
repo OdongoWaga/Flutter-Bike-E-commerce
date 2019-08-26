@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/models/app_state.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:convert';
+import 'package:flutter_ecommerce/widgets/product_item.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
 final gradientBackground = BoxDecoration(
@@ -80,7 +79,7 @@ class ProductsPageState extends State<ProductsPage> {
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 2),
                                 itemBuilder: (context, i) =>
-                                    Text(state.products[i]['name']))))
+                                    ProductItem(item: state.products[i]))))
                   ]);
                 })));
   }

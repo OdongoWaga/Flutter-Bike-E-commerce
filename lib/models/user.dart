@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
 class User {
-  String id;
+  int id;
   String username;
   String email;
   String jwt;

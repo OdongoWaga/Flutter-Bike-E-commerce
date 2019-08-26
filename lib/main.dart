@@ -7,6 +7,7 @@ import 'package:redux/redux.dart';
 import 'models/app_state.dart';
 import 'package:redux_thunk/redux_thunk.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'redux/actions.dart';
 
 void main() {
   final store = Store<AppState>(appReducer,
@@ -28,7 +29,10 @@ class MyApp extends StatelessWidget {
         routes: {
           '/login': (BuildContext context) => LoginPage(),
           '/register': (BuildContext context) => RegisterPage(),
-          '/products': (BuildContext context) => ProductsPage()
+          '/products': (BuildContext context) => ProductsPage(onInit: () {
+                StoreProvider.of<AppState>(context).dispatch(getUserAction);
+                //dispatch an action (getUserAction) to grab user data
+              }),
         },
         theme: ThemeData(
           brightness: Brightness.dark,

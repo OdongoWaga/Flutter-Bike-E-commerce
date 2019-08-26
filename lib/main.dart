@@ -8,6 +8,7 @@ import 'models/app_state.dart';
 import 'package:redux_thunk/redux_thunk.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'redux/actions.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   final store = Store<AppState>(appReducer,
@@ -17,35 +18,33 @@ void main() {
 
 class MyApp extends StatelessWidget {
   final Store<AppState> store;
-
   MyApp({this.store});
 
   @override
   Widget build(BuildContext context) {
     return StoreProvider(
-      store: store,
-      child: MaterialApp(
-        title: 'Soko E-commerce',
-        routes: {
-          '/login': (BuildContext context) => LoginPage(),
-          '/register': (BuildContext context) => RegisterPage(),
-          '/products': (BuildContext context) => ProductsPage(onInit: () {
-                StoreProvider.of<AppState>(context).dispatch(getUserAction);
-                //dispatch an action (getUserAction) to grab user data
-              }),
-        },
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          primaryColor: Colors.cyan[400],
-          accentColor: Colors.deepOrange[200],
-          textTheme: TextTheme(
-            headline: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-            title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-            body1: TextStyle(fontSize: 18.0),
-          ),
-        ),
-        home: RegisterPage(),
-      ),
-    );
+        store: store,
+        child: MaterialApp(
+            title: 'Flutter E-Commerce',
+            routes: {
+              '/products': (BuildContext context) => ProductsPage(onInit: () {
+                    StoreProvider.of<AppState>(context).dispatch(getUserAction);
+                    StoreProvider.of<AppState>(context)
+                        .dispatch(getProductsAction);
+                  }),
+              '/login': (BuildContext context) => LoginPage(),
+              '/register': (BuildContext context) => RegisterPage()
+            },
+            theme: ThemeData(
+                brightness: Brightness.dark,
+                primaryColor: Colors.cyan[400],
+                accentColor: Colors.deepOrange[200],
+                textTheme: TextTheme(
+                    headline:
+                        TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+                    title:
+                        TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+                    body1: TextStyle(fontSize: 18.0))),
+            home: RegisterPage()));
   }
 }

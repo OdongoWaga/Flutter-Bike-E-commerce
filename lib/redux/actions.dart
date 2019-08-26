@@ -3,10 +3,10 @@ import 'package:redux_thunk/redux_thunk.dart';
 import 'package:redux/redux.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:flutter_ecommerce/models/app_state.dart';
 
-/* User Action */
+/* User Actions */
 ThunkAction<AppState> getUserAction = (Store<AppState> store) async {
   final prefs = await SharedPreferences.getInstance();
   final String storedUser = prefs.getString('user');
@@ -21,4 +21,19 @@ class GetUserAction {
   User get user => this._user;
 
   GetUserAction(this._user);
+}
+
+/* Products Actions */
+ThunkAction<AppState> getProductsAction = (Store<AppState> store) async {
+  http.Response response = await http.get('http://localhost:1337/products');
+  final List<dynamic> responseData = json.decode(response.body);
+  store.dispatch(GetProductsAction(responseData));
+};
+
+class GetProductsAction {
+  final List<dynamic> _products;
+
+  List<dynamic> get products => this._products;
+
+  GetProductsAction(this._products);
 }

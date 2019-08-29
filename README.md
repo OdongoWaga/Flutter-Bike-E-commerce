@@ -1,16 +1,21 @@
 # flutter_ecommerce
 
-A new Flutter application.
+# Flutter Stripe
 
-## Getting Started
+A full-stack e-commerce mobile application from scratch, with a complete shopping cart for authenticated users as well an entire customer checkout.
 
-This project is a starting point for a Flutter application.
+Complete app with an eye-catching UI using :  
+-Flutter Material Library  
+-Redux for global state management  
+-Redux Thunk for async actions  
+-Complete API with custom controllers with the help of Strapi  
+-App data stored in a cloud MongoDB Atlas database  
+-User Authentication with Register / Login.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![register](./assets/register.jpg)
+![products](./screenshots/products.png)
+![productdetail](./screenshots/productdetail.png)
+![creditcards](./screenshots/creditcards.png)
+![checkout](./screenshots/checkout.png)
+![success](./screenshots/success.png)
+![orders](./screenshots/orders.png)

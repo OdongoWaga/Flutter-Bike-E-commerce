@@ -13,9 +13,9 @@ Complete app with an eye-catching UI using :
 -User Authentication with Register / Login.
 
 ![register](./assets/register.jpg)
-![products](./screenshots/products.png)
-![productdetail](./screenshots/productdetail.png)
-![creditcards](./screenshots/creditcards.png)
-![checkout](./screenshots/checkout.png)
-![success](./screenshots/success.png)
-![orders](./screenshots/orders.png)
+![products](./assets/products.png)
+![productdetail](./assets/productdetail.png)
+![creditcards](./assets/creditcards.png)
+![checkout](./assets/checkout.png)
+![success](./assets/success.png)
+![orders](./assets/orders.png)

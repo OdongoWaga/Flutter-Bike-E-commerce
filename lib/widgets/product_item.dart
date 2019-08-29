@@ -35,6 +35,8 @@ class ProductItem extends StatelessWidget {
                               onPressed: () => print('pressed'))
                           : Text('');
                     })),
-            child: Image.network(pictureUrl, fit: BoxFit.cover)));
+            child: Hero(
+                tag: item,
+                child: Image.network(pictureUrl, fit: BoxFit.cover))));
   }
 }

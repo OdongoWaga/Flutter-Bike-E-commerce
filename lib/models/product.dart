@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
 class Product {
-  int id;
+  dynamic id;
   String name;
   String description;
   num price;

@@ -9,7 +9,7 @@ Flutter Material Library
 Redux for global state management  
 Redux Thunk for async actions  
 Complete API with custom controllers with the help of Strapi  
-App data stored in a cloud MongoDB Atlas database  
+App data stored in a sqlite database  
 User Authentication with Register / Login.
 
 ![register](./assets/register.jpg)

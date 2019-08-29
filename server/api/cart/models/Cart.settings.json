@@ -1,0 +1,20 @@
+{
+  "connection": "default",
+  "collectionName": "carts",
+  "info": {
+    "name": "cart",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "products": {
+      "collection": "product",
+      "via": "carts",
+      "dominant": true
+    }
+  }
+}

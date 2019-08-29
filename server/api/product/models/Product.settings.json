@@ -25,6 +25,10 @@
       "via": "related",
       "plugin": "upload"
     },
+    "carts": {
+      "collection": "cart",
+      "via": "products"
+    },
     "user": {
       "model": "user",
       "via": "products",

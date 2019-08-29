@@ -18,6 +18,7 @@
     "eslint-plugin-react": "^7.14.0"
   },
   "dependencies": {
+    "axios": "latest",
     "lodash": "^4.17.5",
     "strapi": "3.0.0-beta.15",
     "strapi-admin": "3.0.0-beta.15",

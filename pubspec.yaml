@@ -31,6 +31,7 @@ dev_dependencies:
   shared_preferences: ^0.5.3+4
   flutter_redux: ^0.5.3
   redux_thunk: ^0.2.1
+  redux_logging: ^0.3.0
 
 
 # For information on the generic Dart part of this file, see the

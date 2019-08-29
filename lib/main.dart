@@ -8,10 +8,12 @@ import 'package:flutter_ecommerce/pages/register_page.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux_thunk/redux_thunk.dart';
+import 'package:redux_logging/redux_logging.dart';
 
 void main() {
   final store = Store<AppState>(appReducer,
-      initialState: AppState.initial(), middleware: [thunkMiddleware]);
+      initialState: AppState.initial(),
+      middleware: [thunkMiddleware, LoggingMiddleware.printer()]);
   runApp(MyApp(store: store));
 }
 

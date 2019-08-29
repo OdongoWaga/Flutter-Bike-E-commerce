@@ -3,6 +3,7 @@ import 'package:flutter_ecommerce/models/app_state.dart';
 import 'package:flutter_ecommerce/redux/actions.dart';
 import 'package:flutter_ecommerce/widgets/product_item.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:badges/badges.dart';
 
 final gradientBackground = BoxDecoration(
     gradient: LinearGradient(
@@ -53,7 +54,11 @@ class ProductsPageState extends State<ProductsPage> {
                             onPressed: () =>
                                 Navigator.pushNamed(context, '/register'))),
                 leading: state.user != null
-                    ? IconButton(
+                    ? BadgeIconButton(
+                        itemCount: state.cartProducts.length,
+                        badgeColor: Colors.lime,
+                        badgeTextColor: Colors.black,
+                        hideZeroCount: false,
                         icon: Icon(Icons.store),
                         onPressed: () => Navigator.pushNamed(context, '/cart'))
                     : Text(''),
